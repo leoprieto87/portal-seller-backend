@@ -1,0 +1,83 @@
+{
+  "name": "portal-seller-backend",
+  "version": "0.1.0",
+  "description": "portal seller backend",
+  "scripts": {
+    "start": "node index.js --verbose",
+    "dev": "nodemon index.js",
+    "start-gendoc": "node swagger.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "test": "jest --runInBand",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "dependencies": {
+    "@google-cloud/bigquery": "^5.5.0",
+    "@google-cloud/pubsub": "^2.3.0",
+    "@sendgrid/mail": "^7.2.3",
+    "axios": "^0.19.2",
+    "cors": "^2.8.5",
+    "dotenv": "^8.6.0",
+    "express": "^4.18.2",
+    "firebase": "^7.19.0",
+    "firebase-admin": "8.12.1",
+    "form-data": "^3.0.0",
+    "json2csv": "^5.0.1",
+    "json2xls": "^0.1.2",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.4",
+    "moment-timezone": "^0.5.40",
+    "moment-weekday-calc": "^1.1.4",
+    "nodemon": "^2.0.20",
+    "npm": "^6.14.5",
+    "pg": "^8.6.0",
+    "qs": "^6.11.0",
+    "swagger-autogen": "^2.22.0",
+    "swagger-ui-express": "^4.6.0",
+    "uuid": "^8.3.0",
+    "xlsx": "^0.16.9",
+    "body-parser": "^1.20.1"
+  },
+  "devDependencies": {
+    "@google-cloud/functions-framework": "^1.9.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.5.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "firebase-functions-test": "^0.2.0",
+    "husky": "^4.2.5",
+    "jest": "^26.0.1",
+    "lint-staged": "^10.2.11",
+    "serverless": "^1.74.1",
+    "serverless-functions-base-path": "^1.0.32",
+    "serverless-google-cloudfunctions": "*"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "post-commit": "git update-index --again"
+    }
+  },
+  "nodemonConfig": {
+    "verbose": true,
+    "ignore": [
+      "*test.js",
+      "**/*.log",
+      "*.gz"
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "./node_modules/.bin/eslint"
+    ]
+  },
+  "private": true
+}
